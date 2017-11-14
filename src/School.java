@@ -6,6 +6,7 @@ public class School {
 	ArrayList<Book> catalog = new ArrayList<Book>();
 	int numStudents = 0;
 	String name;
+	Library lib=new Library();
 
 	/**
 	 * Start the execution of your program here.
@@ -28,6 +29,22 @@ public class School {
 	 * 
 	 */
 	public static void main(String args[]) {
+		School sch=new School("Lincoln");
+		sch.addSingleStudent();
+		sch.addSingleStudent();
+		System.out.println(sch.getStudents());
+		sch.catalog.add(new Book("A tale of two cities", 341, "Historical novel", "Charles Dickens"));
+		sch.catalog.add(new Book("The davinci code", 454, "Thriller", "Dan Brown"));
+		sch.catalog.add(new Book("Charlotte's web", 192, "Children's", "E B White"));
+		sch.catalog.add(new Book("The tale of peter rabbit", 52, "Children's", "Beatrix Potter"));
+		System.out.println(sch.printBookTitle());
+		sch.addSingleStudent();
+		sch.addSingleStudent();
+		System.out.println(sch.getStudents());
+		System.out.println(sch.lib.toString());
+		
+		
+		
 		//TODO create a school (similar to the library)
 		
 		//TODO Print the toString method in school. Such as, school.toString()
@@ -55,7 +72,7 @@ public class School {
 	/**
 	 * adds a single student to the school
 	 */
-	public void AddSingleStudent() {
+	public void addSingleStudent() {
 		numStudents++;
 		//Do I need a MAX_STUDENTS ???
 	}
@@ -76,5 +93,13 @@ public class School {
 	 */
 	public int getStudents() {
 		return numStudents;
+	}
+	
+	public String printBookTitle() {
+		String returnString = "";
+		for( Book b : catalog) {
+			returnString += b + "\n";
+		}
+		return returnString;
 	}
 }
